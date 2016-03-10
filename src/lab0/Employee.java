@@ -46,11 +46,11 @@ public class Employee {
         return daysVacation;
     }
     
-    //min days 0 max days 28
+    //min days  max days 
     public final void setDaysVacation(int daysVacation) throws IllegalArgumentException {
         if (daysVacation < minVacDays || daysVacation > maxVacDays){
             throw new IllegalArgumentException("Sorry vacation days must be between "
-                    +minVacDays+"-"+maxVacDays+" Characters");
+                    +minVacDays+"-"+maxVacDays);
         }
         
         this.daysVacation = daysVacation;
