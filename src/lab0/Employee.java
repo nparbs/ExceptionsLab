@@ -17,8 +17,8 @@ package lab0;
  * @version 1.00
  */
 public class Employee {
-    public static final int MAX_VACATION_DAYS = 28;
-    public static final int MIN_VACATION_DAYS = 0;
+    private final int maxVacDays = 28;
+    private final int minVacDays = 0;
     public static final int MAX_NAME_LENGTH = 30;
     public static final int MIN_NAME_LENGTH = 1;
     
@@ -48,9 +48,9 @@ public class Employee {
     
     //min days 0 max days 28
     public final void setDaysVacation(int daysVacation) throws IllegalArgumentException {
-        if (daysVacation < MIN_VACATION_DAYS || daysVacation > MAX_VACATION_DAYS){
+        if (daysVacation < minVacDays || daysVacation > maxVacDays){
             throw new IllegalArgumentException("Sorry vacation days must be between "
-                    +MIN_VACATION_DAYS+"-"+MAX_VACATION_DAYS+" Characters");
+                    +minVacDays+"-"+maxVacDays+" Characters");
         }
         
         this.daysVacation = daysVacation;
