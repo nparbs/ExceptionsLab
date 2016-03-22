@@ -18,11 +18,16 @@ public class NameService {
      * @throws YourCustomExceptionName if fullName is null or empty or has
      * fewer than two parts
      */
-    public String extractLastName(String fullName) {
+
+    public String extractLastName(String fullName) throws IllegalFullNameException{
         String lastName = null;
-        
-        // put your code here
-        
+        String[] nameParts;
+        if(fullName ==null || fullName.isEmpty()|| fullName.split(" ").length < 2){
+            throw new IllegalFullNameException();
+        }
+        // Your code goes here. Assign your value to lastName
+        nameParts= fullName.split(" ");
+        lastName=nameParts[nameParts.length-1];
         return lastName;
     }
     

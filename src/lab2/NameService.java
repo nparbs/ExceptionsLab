@@ -1,5 +1,7 @@
 package lab2;
 
+import lab3.IllegalFullNameException;
+
 /**
  * This class provides various services relating to name manipulation.
  * No output should be performed here.
@@ -9,7 +11,7 @@ package lab2;
  */
 public class NameService {
     
-    private static final int LAST_NAME_IDX = 1;
+    //private static final int LAST_NAME_IDX = 1;
     /**
      * Finds and returns the last name from within a full name. Caution: 
      * No validation is performed.
@@ -19,15 +21,15 @@ public class NameService {
      * @throws IllegalArgumentException if fullName is null or empty or has 
      * fewer than two parts
      */
-    public String extractLastName(String fullName) throws IllegalArgumentException{
-        if(fullName ==null || fullName.isEmpty()|| !fullName.contains(" ")){
-            throw new IllegalArgumentException("Invalid Full Name");
-        }
-        
+     public String extractLastName(String fullName) throws IllegalArgumentException{
         String lastName = null;
+        String[] nameParts;
+        if(fullName ==null || fullName.isEmpty()|| fullName.split(" ").length < 2){
+            throw new IllegalArgumentException();
+        }
         // Your code goes here. Assign your value to lastName
-        String[] nameParts= fullName.split(" ");
-        lastName=nameParts[LAST_NAME_IDX];
+        nameParts= fullName.split(" ");
+        lastName=nameParts[nameParts.length-1];
         return lastName;
     }
     

@@ -23,6 +23,7 @@ public class Challenge1 {
         
         String fullName = JOptionPane.showInputDialog("Enter full name (use Format: first last):");
         String lastName ="";
+        
         try{
         lastName = app.extractLastName(fullName);
         }catch(IllegalArgumentException e){
@@ -37,14 +38,14 @@ public class Challenge1 {
     // is null or empty. Throw the exception the calling method. and handle
     // it there.
     public String extractLastName(String fullName) throws IllegalArgumentException{
-        if(fullName ==null || fullName.isEmpty()|| !fullName.contains(" ")){
+        String lastName = null;
+        String[] nameParts;
+        if(fullName ==null || fullName.isEmpty()|| fullName.split(" ").length < 2){
             throw new IllegalArgumentException("Full name invalid");
         }
-        
-        String lastName = null;
         // Your code goes here. Assign your value to lastName
-        String[] nameParts= fullName.split(" ");
-        lastName=nameParts[LAST_NAME_IDX];
+        nameParts= fullName.split(" ");
+        lastName=nameParts[nameParts.length-1];
         return lastName;
     }
 

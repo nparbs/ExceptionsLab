@@ -15,10 +15,17 @@ public class InputOutputGui {
         nameService = new NameService();
     }
 
-    public void startConversation() {
+    public void startConversation() throws IllegalFullNameException{
         
         String fullName = JOptionPane.showInputDialog("Enter full name:");
-        String lastName = nameService.extractLastName(fullName);
+        String lastName = "";
+        try{
+        lastName = nameService.extractLastName(fullName);
+        } catch(IllegalFullNameException e){
+            System.out.println(e.getMessage());
+        }
+            
+  
         String msg = "Your last name is: " + lastName;
         JOptionPane.showMessageDialog(null, msg);
         
